@@ -20,7 +20,13 @@ public class WatchingAccessibilityService extends AccessibilityService {
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
             if (SPHelper.isShowWindow(this)) {
-                TasksWindow.show(this, event.getPackageName() + "\n" + event.getClassName());
+                String packageName = event.getPackageName().toString();
+                String className = event.getClassName().toString();
+                if (className.startsWith(packageName)) {
+                    TasksWindow.show(this, packageName + " [" + className.substring(packageName.length()) + "]");
+                } else {
+                    TasksWindow.show(this, packageName + "\n" + className);
+                }
             }
         }
     }
