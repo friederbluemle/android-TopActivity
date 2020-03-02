@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ExpiredTargetSdkVersion" severity="warning"/>
+    <issue id="GoogleAppIndexingWarning" severity="ignore"/>
+    <issue id="GradleDependency" severity="informational"/>
+    <issue id="OldTargetApi" severity="informational"/>
+</lint>
